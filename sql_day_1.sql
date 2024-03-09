@@ -39,12 +39,12 @@ select count(*) as num_customer_store1_es
 from customer
 where store_id =1 and last_name like '%es';
 
-SELECT p.amount, COUNT(r.rental_id) AS num_rentals
-FROM payment p
-JOIN rental r ON p.rental_id = r.rental_id
-WHERE p.customer_id between 380 and 430
-GROUP BY p.amount
-HAVING count(r.rental_id) > 250
+select p.amount, COUNT(r.rental_id) as num_rentals
+from payment p
+join rental r on p.rental_id = r.rental_id
+where p.customer_id between 380 and 430
+group by p.amount
+having count(r.rental_id) > 250
 
 select count(distinct rating) as num_rating_categories
 from film;
